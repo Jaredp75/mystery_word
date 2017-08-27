@@ -46,7 +46,7 @@ function checkLetter(req, string, wordArray){
         count = count + 1;
       }
     });
-    /
+    
     if(count === wordArray.stringArr.length){
       req.session.failed = true;
     }

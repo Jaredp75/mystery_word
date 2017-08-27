@@ -112,35 +112,34 @@ app.post('/', function (req, res) {
       remaining: guessesLeft
     });
     console.log("app.post.errors:", errors);
-}
-  else {
-    rememberGuess.push(guessedLetter.toLowerCase());
-    let guess = game_data.isNewLetter(guessedLetter, guessedLetter)
-    console.log("app.post.rememberGuess:", rememberGuess);
+//} else {
+//    rememberGuess.push(guessedLetter.toLowerCase());
+//    let guess = game_data.isNewLetter(guessedLetter, guessedLetter)
+//    console.log("app.post.rememberGuess:", rememberGuess);
 
 
-    if (secretWord.includes(guessedLetter)) {
-      for (i=0; i < secretWord.length; i++) {
-        if (secretWord[i] === guessedLetter) {
-          secretWord[i] = displayableSW[i].replace('_', guessedLetter);
-          console.log("app.post.guessedLetter: guessedLetter");
-        }
-      }
-    }
-    else {
-      guessesLeft -= 1;
-    };
+//    if (secretWord.includes(guessedLetter)) {
+//      for (i=0; i < secretWord.length; i++) {
+//        if (secretWord[i] === guessedLetter) {
+//          secretWord[i] = displayableSW[i].replace('_', guessedLetter);
+//          console.log("app.post.guessedLetter: guessedLetter");
+//        }
+//      }
+//    }
+//    else {
+//      guessesLeft -= 1;
+//    };
 
-    res.render('game', {
-      word: displayableSW,
-      errors: errors,
-      guessedLetters: rememberGuess,
-      remaining: guessesLeft
-    });
-    console.log("app.post.errors:", errors);
+//    res.render('game', {
+//      word: displayableSW,
+//      errors: errors,
+//      guessedLetters: rememberGuess,
+//      remaining: guessesLeft
+//    });
+//    console.log("app.post.errors:", errors);
   } else {
     rememberGuess.push(guessedLetter.toLowerCase());
-    let guess = game_data.isNewLetter(guessedLetter, guessedLetter);
+    let guess = game_data.isNewLetter(guessedLetter, guessedLetter)
     console.log("app.post.rememberGuess:", rememberGuess);
 
 
@@ -152,17 +151,18 @@ app.post('/', function (req, res) {
       }
     }
     else {
-      guessLeft -= 1;
-    };
+      guessesLeft -= 1;
+    };;
 
     res.render('game', {
       title: title,
       word: displayableSW,
       guessedLetters: rememberGuess,
-      remaining: guessLeft
+      remaining: guessesLeft
     });
-
-
+    console.log("app.post.displayableSW:", displayableSW);
+  }
+});
 
     app.listen(3000, function() {
       console.log('Successfully started express application!')
