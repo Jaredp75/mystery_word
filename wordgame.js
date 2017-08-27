@@ -32,7 +32,7 @@ console.log("display.displayableSW:", displayableSW);
 
 const app = express();
 
-//app.use(express.static('public'));
+app.use(express.static('public'));
 
 
 app.use(bodyParser.json());
@@ -147,6 +147,7 @@ app.post('/', function (req, res) {
       for (i = 0; i < secretWord.length; i++) {
         if (secretWord[i] === guessedLetter) {
           secretWord[i] = displayableSW[i].replace('_', guessedLetter);
+          console.log("app.post.guessedLetter: ", guessedLetter);
         }
       }
     }
@@ -160,7 +161,7 @@ app.post('/', function (req, res) {
       guessedLetters: rememberGuess,
       remaining: guessesLeft
     });
-    console.log("app.post.displayableSW:", displayableSW);
+    console.log("app.post.guessedLetter:", guessedLetter);
   }
 });
 
