@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="main.css">
+	<title>{{ title }}</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="title">Mystery Word Game</h1>
+		<h3 class="not_shown">{{ secWord }}</h3>
+		<h3 class="secret_word">{{ word }}</h3>
+		<p></p>
+		<form class="form_container" action="/" method="post">
+			<fieldset class="guess_area">
+				<label for="name">Guess a letter:</label>
+				<input type="text" id="letter" name="yourGuess" required>
+			</fieldset>
+			<input type="submit" value="Guess" id="submit_button">
+		</form>
+
+    <div class="rules_container">
+			<div class="rules">
+				<p>Rules...</p>
+				<ul>
+					<li>Guess the word - One letter at a time</li>
+					<li>Eight incorrect guesses and you lose!</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
