@@ -11,6 +11,18 @@ const parseurl = require('parseurl');
 //Calling objects from game_data.js
 const game_data = require('./game_data');
 
+const app = express();
+
+app.use(express.static('public'));
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded( {
+  extended: false
+}));
+
+
+
 let title = 'Mystery Word Game';
 var guessedLetter = '';
 const rememberGuess = [];
@@ -30,15 +42,6 @@ console.log("display.secretWord:", secretWord);
 console.log("display.displayableSW:", displayableSW);
 
 
-const app = express();
-
-app.use(express.static('public'));
-
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded( {
-  extended: false
-}));
 
 
 
@@ -90,7 +93,7 @@ app.get('/', function (req, res) {
     word: displayableSW,
     remaining: guessesLeft
   });
-  console.log("app.get.displayableSW:", displayableSW);
+  console.log("app.post.displayableSW:", displayableSW);
 });
 
 
@@ -161,7 +164,7 @@ app.post('/', function (req, res) {
       guessedLetters: rememberGuess,
       remaining: guessesLeft
     });
-    console.log("app.post.guessedLetter:", guessedLetter);
+    console.log("app.post.displayableSW:", displayableSW);
   }
 });
 

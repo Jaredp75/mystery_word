@@ -53,7 +53,7 @@ p {
 }
 
 .guess_area {
-	border: none;
+	border: 1px;
 	border-radius: 0.5em;
 }
 
@@ -66,9 +66,9 @@ input {
 
 #submit_button {
 	background: transparent;
-	border: none;
+	border: 1px;
   border-radius: 0.6em;
-	color: #000;
+	color: black;
   cursor: pointer;
 	font-family: sans-serif;
 
